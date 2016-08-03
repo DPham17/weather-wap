@@ -1,0 +1,104 @@
+$primary:    #387ef5;
+$secondary:  #32db64;
+$danger:     #f53d3d;
+$light:      #f4f4f4;
+$dark:       #222;
+$favorite:   #69BB7B;
+$dark-blue:  #004c91;
+$med-blue:   #007dc6;
+$light-blue: #78b9e7;
+$orange:     #f47321;
+$red:        #e62b1e;
+$yellow:     #ffc220;
+$dark-green: #367c2b;
+$light-green:#76c043;
+$sub-font:   #696969;
+$white:      #FFFFFF;
+$background: #F1F4F7;
+
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.main-body {
+  background-color: $background;
+}
+
+.toast {
+  white-space: pre;
+}
+
+.toast-message{
+  padding-top: 0px;
+  top: -19px;
+  position: relative;
+  word-wrap: normal;
+}
+
+.toast-button{
+  position: relative;
+  top: -26px;
+}
+
+.toast-wrapper{
+  height: 64px;
+}
+
+.sideMenu {
+  margin-left: 5px;
+}
+
+//*******************
+// overriding some Ionic 2 framework
+//*******************
+ion-card ion-card-header {
+  font-size: 14px;
+}
+
+.card {
+  .sub {
+    color: $sub-font;
+    padding: 6px 0 6px 12px; //top right bottom left
+    font-size: 14px;
+  }
+
+  .item-note {
+    height: 20px;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sub-card-font {
+    font-size: 12px;
+  }
+
+  .sub-card-content {
+    font-size: 14px;
+  }
+}
+
+/*
+  This is the dark gradient that overlays the images so the title is easy to define
+  Tip: I would mess with the 0.3 (currently) to like .4 to make it stronger and vice versa
+*/
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.3) 100%);
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,0.3) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
+  width: 100%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
