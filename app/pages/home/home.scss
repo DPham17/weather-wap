@@ -1,1 +1,10 @@
 @import "../app";
+
+.container {
+  display: inline-block;
+  text-align: center;
+  
+  .sub-text {
+    display: block;
+  }
+}
