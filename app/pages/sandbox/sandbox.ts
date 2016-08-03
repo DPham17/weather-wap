@@ -10,8 +10,4 @@ import {HomePage} from '../home/home';
 export class SandboxPage {
   constructor(private nav: NavController, navParams: NavParams) {
   }
-
-  tapHomepage(event, item) {
-    this.nav.setRoot(HomePage);
-  }
 }

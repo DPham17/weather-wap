@@ -1,20 +1,30 @@
-$primary:    #387ef5;
-$secondary:  #32db64;
-$danger:     #f53d3d;
-$light:      #f4f4f4;
-$dark:       #222;
-$favorite:   #69BB7B;
+$primary:    #007dc6;
 $dark-blue:  #004c91;
 $med-blue:   #007dc6;
 $light-blue: #78b9e7;
-$orange:     #f47321;
+$teal-blue:  #4DCBFF;
+$dull-blue:  #4084A2;
+
+$danger:     #f53d3d;
 $red:        #e62b1e;
+
+$orange:     #f47321;
+
 $yellow:     #ffc220;
+
 $dark-green: #367c2b;
 $light-green:#76c043;
-$sub-font:   #696969;
-$white:      #FFFFFF;
+$secondary:  #32db64;
+$favorite:   #69BB7B;
+
+$dark-grey:  #696969;
+$light-grey: #A4A5A5;
+$light:      #f4f4f4;
 $background: #F1F4F7;
+$white:      #FFFFFF;
+$dark:       #000000;
+
+
 
 
 html {
@@ -27,62 +37,35 @@ html {
 }
 
 .main-body {
-  background-color: $background;
+  background-color: black;
+  color: $light;
 }
 
-.toast {
-  white-space: pre;
+html { box-sizing: border-box; }
+html *,
+html *:before,
+html *:after { box-sizing: inherit; }
+
+body {
+  margin: 0 auto;
+  color: #161616;
+  font-family: 'Roboto', sans-serif;
+  background-color: currentColor;
 }
 
-.toast-message{
-  padding-top: 0px;
-  top: -19px;
-  position: relative;
-  word-wrap: normal;
+h1 {
+  margin-bottom: 1.375em;
+  color: #fff;
+  font-weight: 100;
+  font-size: 2em;
+  text-transform: uppercase;
 }
-
-.toast-button{
-  position: relative;
-  top: -26px;
+p,
+a {
+  color: $light;
+  font-size: small;
 }
-
-.toast-wrapper{
-  height: 64px;
-}
-
-.sideMenu {
-  margin-left: 5px;
-}
-
-//*******************
-// overriding some Ionic 2 framework
-//*******************
-ion-card ion-card-header {
-  font-size: 14px;
-}
-
-.card {
-  .sub {
-    color: $sub-font;
-    padding: 6px 0 6px 12px; //top right bottom left
-    font-size: 14px;
-  }
-
-  .item-note {
-    height: 20px;
-    float: right;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sub-card-font {
-    font-size: 12px;
-  }
-
-  .sub-card-content {
-    font-size: 14px;
-  }
-}
+p { margin: 1.375rem 0; }
 
 /*
   This is the dark gradient that overlays the images so the title is easy to define

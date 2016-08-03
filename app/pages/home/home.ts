@@ -11,6 +11,8 @@ export class HomePage {
   }
 
   tapSandbox(event, item) {
-    this.nav.setRoot(SandboxPage);
+    this.nav.push(SandboxPage, {
+      item: item
+    });
   }
 }
