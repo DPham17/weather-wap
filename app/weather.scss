@@ -121,7 +121,7 @@
   width: 1.125em;
   height: 1.125em;
   margin: -1em 0 0 -0.25em;
-  background: #0cf;
+  background: #4DCBFF;
   border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
   box-shadow:
     0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
@@ -234,22 +234,22 @@
 
 @keyframes rain {
   0% {
-    background: #0cf;
+    background: #4DCBFF;
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
-      -1.375em -0.125em 0 #0cf;
+      -1.375em -0.125em 0 #4DCBFF;
   }
   25% {
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
-      -0.875em 1.125em 0 -0.125em #0cf,
+      -0.875em 1.125em 0 -0.125em #4DCBFF,
       -1.375em -0.125em 0 rgba(255,255,255,0.2);
   }
   50% {
     background: rgba(255,255,255,0.3);
     box-shadow:
-      0.625em 0.875em 0 -0.125em #0cf,
+      0.625em 0.875em 0 -0.125em #4DCBFF,
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
       -1.375em -0.125em 0 rgba(255,255,255,0.2);
   }
@@ -257,7 +257,7 @@
     box-shadow:
       0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
       -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
-      -1.375em -0.125em 0 #0cf;
+      -1.375em -0.125em 0 #4DCBFF;
   }
 }
 
@@ -268,8 +268,8 @@
     opacity: 0.2;
   }
   50% {
-    color: #0cf;
-    background: #0cf;
+    color: #4DCBFF;
+    background: #4DCBFF;
     opacity: 1;
   }
   55% {
