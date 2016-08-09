@@ -32,10 +32,12 @@ export class HomePage {
   urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
   constructor(private nav: NavController, private http: Http, public events: Events) {
-    console.log(this.urlCalendar);
     // Calls the Google Calendar API
     this.getData();
     this.getWeather();
+
+    console.log("Test2 ");
+    console.log(this.recievedData);
   }
 
   tapSandbox(event, item) {
@@ -45,11 +47,31 @@ export class HomePage {
   }
 
   getData() {
+    this.http.get(this.urlCalendar)
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.recievedData = data;
+          console.log(this.recievedData);
+          this.recievedData = this.recievedData;
+        },
+        err => this.logError(err),
+        () => console.log('Calendar data complete')
+      );
+  }
+
+  logError(err) {
+    console.error("There was an error: " + err);
+  }
+
+  /*
+  http://stackoverflow.com/questions/32850604/how-to-get-a-json-file-in-angular2-using-the-http-class
+
+  getData() {
     this.http.get(this.urlCalendar).subscribe( //Send a pull request to the remote server and map the response to res
       recievedData => { //convert the response to a json object, and map this object to recieved data
-        console.log(recievedData);
         this.recievedData = recievedData;
-        //this.processRecievedData();
+        this.processRecievedData();
         //this.sqlStorageService.storeData('coolerFallback', recievedData); //set the fallback cache to contain this data we just pulled
       },
       (err) => { //if the remote pull fails for any reason
@@ -58,18 +80,23 @@ export class HomePage {
         //this.offlineFallback();
       }
     );
-    console.log("Calendar output " + this.recievedData);
+
   }
+  */
 
   private processRecievedData() {
+    console.log(this.recievedData);
     for (var item of this.recievedData) {
+      console.log(item);
       let model: calendarModel = new calendarModel()
       model.initialize(item);
       this.items.push(model);
-      this.events.publish('calendar:updated');
+      //this.events.publish('calendar:updated');
     }
-    this.events.publish('calendar:datapullFinished');
+    //this.events.publish('calendar:datapullFinished');
   }
+
+
 
   getWeather() {
     this.http.get(this.urlWeatherCurrent).subscribe(
@@ -85,7 +112,6 @@ export class HomePage {
         //this.offlineFallback();
       }
     );
-    console.log(this.recievedWeather);
   }
 
 
