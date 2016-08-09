@@ -96,5 +96,10 @@
   </div>
 
 
-  {{recievedData}}
+  {{summary}}
+  <div *ngFor="let item of items">
+    <div *ngFor="let data of item.items">
+      {{data.summary}}
+    </div>
+  </div>
 </ion-content>

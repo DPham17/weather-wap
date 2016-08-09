@@ -13,6 +13,7 @@ import {calendarModel} from '../../models/calendarModel'
 export class HomePage {
 
   recievedData: any;
+  summary: any;
   recievedWeather: any;
   email_1: string = 'dzutpham@gmail.com';
   apiKeyCal: string = 'AIzaSyAT85ggW19Y2_4i2bGPZ_O2hBTcN94wBHY';
@@ -52,6 +53,7 @@ export class HomePage {
       .subscribe(
         data => {
           this.recievedData = data;
+          this.summary = data.summary;
           this.processRecievedData(data);
         },
         err => this.logError(err),
@@ -64,8 +66,21 @@ export class HomePage {
   }
 
   /*
+  getData() {
+    this.http.get(this.urlCalendar)
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.recievedData = data;
+          this.processRecievedData(data);
+        },
+        err => this.logError(err),
+        () => console.log('Calendar data complete')
+      );
+  }
+  */
 
-
+  /*
   getData() {
     this.http.get(this.urlCalendar).subscribe( //Send a pull request to the remote server and map the response to res
       recievedData => { //convert the response to a json object, and map this object to recieved data
@@ -84,20 +99,15 @@ export class HomePage {
   */
 
   private processRecievedData(data) {
-    //console.log(data);
-    for (var item of this.recievedData) {
-      let newCalendar: calendarModel = new calendarModel();
-      newCalendar.initialize(item);
-      this.items.push(newCalendar);
-    }
-    console.log(this.recievedData);
-    console.log(this.items)
+    let model: calendarModel = new calendarModel();
+    model.initialize(this.recievedData);
+    this.items.push(model);
+
+    console.log(this.items);
   }
 
 /*private processRecievedData() {
-  console.log(this.recievedData);
   for (var item of this.recievedData) {
-    console.log(item);
     let model: calendarModel = new calendarModel()
     model.initialize(item);
     this.items.push(model);
@@ -105,6 +115,23 @@ export class HomePage {
   }
   //this.events.publish('calendar:datapullFinished');
 }*/
+
+/*
+private processRecievedData() {
+    for (var item of this.recievedData) {
+      let model: coolerSlotModel = new coolerSlotModel()
+      model.initialize(item);
+      model.inspectionTranslate();
+      this.items.push(model);
+      this.events.publish('coolerList:updated');
+    }
+    this.events.publish('coolerList:datapullFinished');
+  }
+*/
+
+
+
+
 
   getWeather() {
     this.http.get(this.urlWeatherCurrent).subscribe(
