@@ -23,7 +23,7 @@ export class HomePage {
   maxEvents: string = '10';
   city: string = 'bentonville,ar'
 
-  items: Array<calendarModel> = new Array<calendarModel>();
+  calendarItems: Array<calendarModel> = new Array<calendarModel>();
 
   // Gotta build url string
   urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
@@ -99,11 +99,11 @@ export class HomePage {
   */
 
   private processRecievedData(data) {
+    console.log(data);
     let model: calendarModel = new calendarModel();
     model.initialize(this.recievedData);
-    this.items.push(model);
-
-    console.log(this.items);
+    this.calendarItems.push(model);
+    console.log(this.calendarItems);
   }
 
 /*private processRecievedData() {

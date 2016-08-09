@@ -3,8 +3,26 @@
 .container {
   display: inline-block;
   text-align: center;
-  
+
   .sub-text {
     display: block;
+  }
+}
+
+.calendar {
+  float: right;
+  width: 350px;
+  padding: 5px 5px 0 5px; //top right bottom left
+
+  .calendar-header {
+    background-color: $primary;
+    margin-top: 10px;
+    padding: 10px 0 10px 10px;
+    vertical-align: center;
+    font-size: 18px;
+  }
+
+  .calendar-content {
+    padding: 10px 0 0 16px;
   }
 }

@@ -89,17 +89,23 @@
       March 20, 2016
     </div>
   </div>
+
+  <div class="calendar">
+    <div class="calendar-header">
+      Calendar
+    </div>
+    <div class="calendar-content" *ngFor="let item of calendarItems">
+      <div *ngFor="let data of item.items">
+        {{data.summary}} -
+        {{data.description}}
+      </div>
+    </div>
+  </div>
+
   <div>
     <button (click)="tapSandbox()">
       Visit Sandbox
     </button>
   </div>
 
-
-  {{summary}}
-  <div *ngFor="let item of items">
-    <div *ngFor="let data of item.items">
-      {{data.summary}}
-    </div>
-  </div>
 </ion-content>
