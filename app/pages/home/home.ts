@@ -52,8 +52,7 @@ export class HomePage {
       .subscribe(
         data => {
           this.recievedData = data;
-          console.log(this.recievedData);
-          this.recievedData = this.recievedData;
+          this.processRecievedData(data);
         },
         err => this.logError(err),
         () => console.log('Calendar data complete')
@@ -65,7 +64,7 @@ export class HomePage {
   }
 
   /*
-  http://stackoverflow.com/questions/32850604/how-to-get-a-json-file-in-angular2-using-the-http-class
+
 
   getData() {
     this.http.get(this.urlCalendar).subscribe( //Send a pull request to the remote server and map the response to res
@@ -84,19 +83,28 @@ export class HomePage {
   }
   */
 
-  private processRecievedData() {
-    console.log(this.recievedData);
+  private processRecievedData(data) {
+    //console.log(data);
     for (var item of this.recievedData) {
-      console.log(item);
-      let model: calendarModel = new calendarModel()
-      model.initialize(item);
-      this.items.push(model);
-      //this.events.publish('calendar:updated');
+      let newCalendar: calendarModel = new calendarModel();
+      newCalendar.initialize(item);
+      this.items.push(newCalendar);
     }
-    //this.events.publish('calendar:datapullFinished');
+    console.log(this.recievedData);
+    console.log(this.items)
   }
 
-
+/*private processRecievedData() {
+  console.log(this.recievedData);
+  for (var item of this.recievedData) {
+    console.log(item);
+    let model: calendarModel = new calendarModel()
+    model.initialize(item);
+    this.items.push(model);
+    //this.events.publish('calendar:updated');
+  }
+  //this.events.publish('calendar:datapullFinished');
+}*/
 
   getWeather() {
     this.http.get(this.urlWeatherCurrent).subscribe(
