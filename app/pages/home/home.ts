@@ -19,7 +19,8 @@ export class HomePage {
   recievedForecast: any;
   email_1: string = 'dzutpham@gmail.com';
   apiKeyCal: string = 'AIzaSyAT85ggW19Y2_4i2bGPZ_O2hBTcN94wBHY';
-  apiKeyW: string = '61e9b5e1f5096d77dbd8dc5faf674e43';
+  //apiKeyW: string = '61e9b5e1f5096d77dbd8dc5faf674e43';
+  apiKeyW: string = 'b65cd3c940b29e88';
   timeMin: string = '2016-08-04T19%3A36%3A34%2B00%3A00';
   //timeMin: string = '2016-08-04T19:36:34+00:00';
   maxEvents: string = '10';
@@ -32,9 +33,13 @@ export class HomePage {
   // Gotta build url string
   urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?orderBy=starttime&singleEvents=true&maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
 
-  urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
+  //urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
-  urlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
+  urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/AR/Bentonville.json';
+
+  //urlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
+
+  urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/AR/Bentonville.json';;
 
   constructor(private nav: NavController, private http: Http, public events: Events) {
     // Calls the Google Calendar API

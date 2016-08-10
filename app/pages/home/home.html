@@ -118,10 +118,14 @@
   <!-- Current Weather  -->
   <div class="current-weather">
     <div *ngFor="let current of currentWeather">
-      <b> <font class="time">6:69 PM</font> </b><br>
-      <font class="sub-title">{{current.name}}  |  {{current.main.temp}}° F </font><br>
-      <b>Humidity: </b> {{current.main.humidity}}% <br>
-      <b>Forecast: </b> {{current.weather[0].description}} <br>
+      <font class="time">6:69</font><font style="font-size: 15px"> PM </font><br>
+      <font class="sub-title">
+        {{current.current_observation.temp_f}}°F
+      </font><br>
+      {{current.current_observation.display_location.full}}<br>
+      Feels like {{current.current_observation.feelslike_f}}°F<br>
+      {{current.current_observation.relative_humidity}} Humidity <br>
+      {{current.current_observation.weather}}<br>
     </div>
   </div>
 
