@@ -4,8 +4,8 @@
 
   <!-- Day 1 -->
   <div class="container">
-    <div class="sub-text">
-      Monday
+    <div class="sub-text days">
+      <b>Monday</b>
     </div>
     <div class="icon sunny">
       <div class="sun">
@@ -21,8 +21,8 @@
 
   <!-- Day 2 -->
   <div class="container">
-    <div class="sub-text">
-      Tuesday
+    <div class="sub-text days">
+      <b>Tuesday</b>
     </div>
     <div class="icon cloudy">
       <div class="cloud"></div>
@@ -37,8 +37,8 @@
 
   <!-- Day 3 -->
   <div class="container">
-    <div class="sub-text">
-      Wednesday
+    <div class="sub-text days">
+      <b>Wednesday</b>
     </div>
     <div class="icon rainy">
       <div class="cloud"></div>
@@ -54,8 +54,8 @@
 
   <!-- Day 4 -->
   <div class="container">
-    <div class="sub-text">
-      Thursday
+    <div class="sub-text days">
+      <b>Thursday</b>
     </div>
     <div class="icon sun-shower">
       <div class="cloud"></div>
@@ -73,8 +73,8 @@
 
   <!-- Day 5 -->
   <div class="container">
-    <div class="sub-text">
-      Friday
+    <div class="sub-text days">
+      <b>Friday</b>
     </div>
     <div class="icon flurries">
       <div class="cloud"></div>
@@ -118,9 +118,8 @@
   <!-- Current Weather  -->
   <div class="current-weather">
     <div *ngFor="let current of currentWeather">
-      <b>Current weather </b> <br>
-      <b>City: </b> {{current.name}} <br>
-      <b>Current Temp: </b> {{current.main.temp}}° F <br>
+      <b> <font class="time">6:69 PM</font> </b><br>
+      <font class="sub-title">{{current.name}}  |  {{current.main.temp}}° F </font><br>
       <b>Humidity: </b> {{current.main.humidity}}% <br>
       <b>Forecast: </b> {{current.weather[0].description}} <br>
     </div>
