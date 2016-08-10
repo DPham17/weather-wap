@@ -30,7 +30,7 @@ export class HomePage {
   forecast: Array<forecastModel> = new Array<forecastModel>();
 
   // Gotta build url string
-  urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
+  urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?orderBy=starttime&singleEvents=true&maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
 
   urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 

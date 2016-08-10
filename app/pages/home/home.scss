@@ -1,5 +1,10 @@
 @import "../app";
 
+body {
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
 .container {
   display: inline-block;
   text-align: center;
@@ -11,8 +16,9 @@
 
 .calendar {
   float: right;
-  width: 350px;
+  width: 400px;
   padding: 5px 5px 0 5px; //top right bottom left
+  margin-right: 30px;
 
   .calendar-header {
     background-color: $primary;
@@ -20,9 +26,26 @@
     padding: 10px 0 10px 10px;
     vertical-align: center;
     font-size: 18px;
+
   }
 
   .calendar-content {
-    padding: 10px 0 0 16px;
+    padding: 10px 24px 0 24px;
+
+    .body {
+      padding-left: 8px;
+
+      .details {
+        font-size: 1.4rem;
+      }
+    }
   }
+}
+
+.hr-line {
+  background-color: $dark-grey;
+}
+
+.current-weather {
+  padding: 20px;
 }

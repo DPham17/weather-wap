@@ -3,40 +3,40 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class calendarModel{
 
+  kind: string
+  summary: string
+  description: string
+  updated: string
+  timeZone: string
+  accessRole: string
+
+  items: {
     kind: string
-    summary: string
-    description: string
+    status: string
     updated: string
-    timeZone: string
-    accessRole: string
+    summary: string
 
-    items: {
-      kind: string
-      status: string
-      updated: string
-      summary: string
-
-      creator: {
-        email: string
-        displayName: string
-      }
-
-      start: {
-        date: string
-      }
-
-      end: {
-        date: string
-      }
-
+    creator: {
+      email: string
+      displayName: string
     }
 
-
-    initialize(data){
-        for(var property in data){
-            this[property] = data[property];
-        }
+    start: {
+      date: string
     }
+
+    end: {
+      date: string
+    }
+
+  }
+
+
+  initialize(data){
+    for(var property in data){
+      this[property] = data[property];
+    }
+  }
 
 }
 

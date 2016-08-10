@@ -90,24 +90,40 @@
     </div>
   </div>
 
+  <!-- Calendar -->
   <div class="calendar">
     <div class="calendar-header">
       Calendar
     </div>
     <div class="calendar-content" *ngFor="let item of calendarItems">
-      <div *ngFor="let data of item.items">
-        {{data.summary}} -
-        {{data.description}}
+      <div *ngFor="let data of item.items; let i = index">
+        <div *ngIf="i != 0"><hr class="hr-line"></div>
+        <div class="body">
+          <b class="details"> {{data.summary}} </b> <br>
+          {{data.updated}}  |  1 PM - 2 PM <br>
+          <div *ngIf="data.description != NULL">
+            <ion-icon name="document" style="margin-right: 5px; padding-top: 5px;"></ion-icon>
+            {{data.description}}
+          </div>
+          <div *ngIf="data.location != NULL">
+            <ion-icon name="pin" style="margin-right: 8px; padding-top: 5px;"></ion-icon>{{data.location}}
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <div *ngFor="let current of currentWeather">
-    <b>Current weather </b> <br>
-    <b>City: </b> {{current.name}} <br>
-    <b>Current Temp: </b> {{current.main.temp}}° F <br>
-    <b>Humidity: </b> {{current.main.humidity}}% <br>
-    <b>Forecast: </b> {{current.weather[0].description}} <br>
+
+  <!-- Current Weather  -->
+  <div class="current-weather">
+    <div *ngFor="let current of currentWeather">
+      <b>Current weather </b> <br>
+      <b>City: </b> {{current.name}} <br>
+      <b>Current Temp: </b> {{current.main.temp}}° F <br>
+      <b>Humidity: </b> {{current.main.humidity}}% <br>
+      <b>Forecast: </b> {{current.weather[0].description}} <br>
+    </div>
   </div>
 
 
