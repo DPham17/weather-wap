@@ -102,6 +102,20 @@
     </div>
   </div>
 
+  <div *ngFor="let current of currentWeather">
+    <b>Current weather </b> <br>
+    <b>City: </b> {{current.name}} <br>
+    <b>Current Temp: </b> {{current.main.temp}}° F <br>
+    <b>Humidity: </b> {{current.main.humidity}}% <br>
+    <b>Forecast: </b> {{current.weather[0].description}} <br>
+  </div>
+
+
+
+
+
+
+
   <div>
     <button (click)="tapSandbox()">
       Visit Sandbox
