@@ -7,6 +7,7 @@ import {SandboxPage} from '../sandbox/sandbox'
 import {calendarModel} from '../../models/calendarModel'
 import {weatherModel} from '../../models/weatherModel'
 import {forecastModel} from '../../models/forecastModel'
+import {hourlyModel} from '../../models/hourlyModel'
 import {clockPage} from "../home/clock" // only so that it works offline
 
 @Component({
@@ -17,6 +18,7 @@ export class HomePage {
 
   recievedData: any;
   recievedWeather: any;
+  recievedHourly: any;
   recievedForecast: any;
   email_1: string = 'dzutpham@gmail.com';
   apiKeyCal: string = 'AIzaSyAT85ggW19Y2_4i2bGPZ_O2hBTcN94wBHY';
@@ -29,7 +31,9 @@ export class HomePage {
 
   calendarItems: Array<calendarModel> = new Array<calendarModel>();
   currentWeather: Array<weatherModel> = new Array<weatherModel>();
+  hourlyWeather: Array<hourlyModel> = new Array<hourlyModel>();
   forecast: Array<forecastModel> = new Array<forecastModel>();
+
 
   // Gotta build url string
   urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?orderBy=starttime&singleEvents=true&maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
@@ -37,6 +41,8 @@ export class HomePage {
   //urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
   urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/AR/Bentonville.json';
+
+  urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/AR/Bentonville.json';
 
   //urlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
@@ -48,6 +54,7 @@ export class HomePage {
     // Calls the Google Calendar API
     this.getData();
     this.getWeather();
+    this.getHourly();
     this.getForecast();
   }
 
@@ -103,7 +110,28 @@ export class HomePage {
     console.log(this.currentWeather);
   }
 
-  // Gets a 5 day forecast
+  // Get the current hourly forecast
+  getHourly() {
+    this.http.get(this.urlHourlyCurrent)
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.recievedHourly = data;
+          this.processHourlyData(data);
+        },
+        err => this.logError(err),
+        () => console.log('Hourly weather recieved')
+      );
+  }
+
+  private processHourlyData(data) {
+    let model: hourlyModel = new hourlyModel();
+    model.initialize(this.recievedHourly);
+    this.hourlyWeather.push(model);
+    console.log(this.hourlyWeather);
+  }
+
+  // Gets a forecast
   getForecast() {
     this.http.get(this.urlForecast)
       .map(res => res.json())
@@ -113,7 +141,7 @@ export class HomePage {
           this.processForecast(data);
         },
         err => this.logError(err),
-        () => console.log('5 day forecast recieved')
+        () => console.log('Weather forecast recieved')
       );
   }
 
