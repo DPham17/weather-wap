@@ -1,12 +1,6 @@
 import {Component} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
-import 'rxjs/add/operator/map';
 import {Events} from 'ionic-angular';
 import {NavController} from 'ionic-angular';
-import {SandboxPage} from '../sandbox/sandbox'
-import {calendarModel} from '../../models/calendarModel'
-import {weatherModel} from '../../models/weatherModel'
-import {forecastModel} from '../../models/forecastModel'
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
@@ -14,30 +8,52 @@ import {forecastModel} from '../../models/forecastModel'
 
 export class clockPage {
 
+  weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  month = ["January","February","March","April","May","June","July","August",
+            "September","October","November","December"];
+
+  d: any = new Date();
+  nday: string = this.d.getDay(); //weekday
+  nmonth: string = this.d.getMonth();
+  nyear: string = this.d.getFullYear();
+  ndate: string = this.d.getDate();
+  nhour: string = this.d.getHours();
+  nmin: string = this.d.getMinutes();
+  nsec: string = this.d.getSeconds();
+
   constructor(private nav: NavController) {
   }
 
+  getClock() {
+    
+  }
+
+}
 
 
 
+
+/*
+
+  <script type="text/javascript">
   tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
   tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
 
   function GetClock(){
-  var d=new Date();
-  var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-  if(nyear<1000) nyear+=1900;
-  var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+    var d=new Date();
+    var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+    if(nyear<1000) nyear+=1900;
+    var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
 
-  if(nhour==0){ap=" AM";nhour=12;}
-  else if(nhour<12){ap=" AM";}
-  else if(nhour==12){ap=" PM";}
-  else if(nhour>12){ap=" PM";nhour-=12;}
+    if(nhour==0){ap=" AM";nhour=12;}
+    else if(nhour<12){ap=" AM";}
+    else if(nhour==12){ap=" PM";}
+    else if(nhour>12){ap=" PM";nhour-=12;}
 
-  if(nmin<=9) nmin="0"+nmin;
-  if(nsec<=9) nsec="0"+nsec;
+    if(nmin<=9) nmin="0"+nmin;
+    if(nsec<=9) nsec="0"+nsec;
 
-  document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+    document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
   }
 
   window.onload=function(){
@@ -45,9 +61,23 @@ export class clockPage {
   setInterval(GetClock,1000);
   }
 
+  </script>
+  <div id="clockbox"></div>
 
 
 
+  if(nhour==0){
+    ap=" AM";nhour=12;
+  }
+  else if(nhour<12){
+    ap=" AM";
+  }
+  else if(nhour==12){
+    ap=" PM";
+  }
+  else if(nhour>12){
+    ap=" PM";nhour-=12;
+  }
 
 
-}
+*/

@@ -7,6 +7,7 @@ import {SandboxPage} from '../sandbox/sandbox'
 import {calendarModel} from '../../models/calendarModel'
 import {weatherModel} from '../../models/weatherModel'
 import {forecastModel} from '../../models/forecastModel'
+import {clockPage} from "../home/clock" // only so that it works offline
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
@@ -41,7 +42,9 @@ export class HomePage {
 
   urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/AR/Bentonville.json';;
 
-  constructor(private nav: NavController, private http: Http, public events: Events) {
+  constructor(private nav: NavController,
+              private http: Http,
+              public events: Events) {
     // Calls the Google Calendar API
     this.getData();
     this.getWeather();
@@ -73,7 +76,6 @@ export class HomePage {
   }
 
   private processRecievedData(data) {
-    console.log(data); // This is only to show the layout of the data
     let model: calendarModel = new calendarModel();
     model.initialize(this.recievedData);
     this.calendarItems.push(model);
@@ -95,7 +97,6 @@ export class HomePage {
   }
 
   private processWeatherData(data) {
-    console.log(data); // This is only to show the layout of the data
     let model: weatherModel = new weatherModel();
     model.initialize(this.recievedWeather);
     this.currentWeather.push(model);
@@ -117,7 +118,6 @@ export class HomePage {
   }
 
   private processForecast(data) {
-    console.log(data); // This is only to show the layout of the Data
     let model: forecastModel = new forecastModel();
     model.initialize(this.recievedForecast);
     this.forecast.push(model);
