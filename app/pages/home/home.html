@@ -119,27 +119,33 @@
   <div class="current-weather">
     <div *ngFor="let current of currentWeather">
       <font class="sub-title">
+        Tuesday the 5th
+      </font><br>
+      <font class="title">
+        4:20
+      </font><br><br>
+      <font class="sub-data">
         {{current.current_observation.temp_f}}°F |
         {{current.current_observation.weather}}
       </font><br>
-      Feels like {{current.current_observation.feelslike_f}}°F<br>
-      {{current.current_observation.relative_humidity}} Humidity <br>
-      {{current.current_observation.display_location.full}}<br>
+      <font class="sub-data">
+        Feels like {{current.current_observation.feelslike_f}}°F<br>
+        {{current.current_observation.relative_humidity}} Humidity <br>
+        {{current.current_observation.display_location.full}}<br>
+      </font>
     </div>
   </div>
 
-
-
-  <iframe src="http://free.timeanddate.com/clock/i5bmyk34/n5079/fs30/fcfff/tc000/pc000/ahl/ftb/tt0/th2/tb4" frameborder="0" width="463" height="74"></iframe>
+  <!--iframe src="http://free.timeanddate.com/clock/i5bmyk34/n5079/fs30/fcfff/tc000/pc000/ahl/ftb/tt0/th2/tb4" frameborder="0" width="463" height="74"></iframe-->
 
 
 
 
-  <div>
+  <!--div>
     <button (click)="tapSandbox()">
       Visit Sandbox
     </button>
-  </div>
+  </div-->
 
 
 

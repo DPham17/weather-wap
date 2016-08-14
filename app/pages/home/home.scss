@@ -52,11 +52,21 @@ body {
 
 .current-weather {
   padding: 80px 0 80px 20px;
+  text-align: left;
+  float: left;
   .time {
+    font-size: 36px;
+  }
+
+  .title {
     font-size: 36px;
   }
 
   .sub-title {
     font-size: 20px;
+  }
+
+  .sub-data {
+    font-size: 15px;
   }
 }

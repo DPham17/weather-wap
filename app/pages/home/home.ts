@@ -27,7 +27,8 @@ export class HomePage {
   timeMin: string = '2016-08-04T19%3A36%3A34%2B00%3A00';
   //timeMin: string = '2016-08-04T19:36:34+00:00';
   maxEvents: string = '10';
-  city: string = 'Bentonville,US'
+  city: string = 'Florissant'
+  state: string = 'MO'
 
   calendarItems: Array<calendarModel> = new Array<calendarModel>();
   currentWeather: Array<weatherModel> = new Array<weatherModel>();
@@ -40,13 +41,13 @@ export class HomePage {
 
   //urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
-  urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/AR/Bentonville.json';
+  urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/' + this.state + '/' + this.city + '.json';
 
-  urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/AR/Bentonville.json';
+  urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/' + this.state + '/' + this.city + '.json';
 
   //urlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
 
-  urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/AR/Bentonville.json';;
+  urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/' + this.state + '/' + this.city + '.json';;
 
   constructor(private nav: NavController,
               private http: Http,
