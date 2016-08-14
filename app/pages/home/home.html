@@ -148,5 +148,21 @@
   </div-->
 
 
+  <div *ngFor="let forecast_1 of forecast">
+    <div *ngFor="let txt of forecast_1.txt_forecast">
+      <div *ngFor="let days of txt.forecastday">
+        {{days.title}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let day of forecast">
+    {{day.forecast.txt_forecast.forecastday[0].title}}
+  </div>
+
+  <!--div *ngFor="let days of forecast.forecast.txt_forecast.forcastday">
+    {{days.title}}
+  </div-->
+
 
 </ion-content>

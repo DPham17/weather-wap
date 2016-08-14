@@ -20,9 +20,9 @@ export class hourlyModel{
   windchill_f: string
 
   initialize(data){
-      for(var property in data){
-          this[property] = data[property];
-      }
+    for(var property in data){
+      this[property] = data[property];
+    }
   }
 
 }
