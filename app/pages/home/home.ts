@@ -39,15 +39,15 @@ export class HomePage {
   // Gotta build url string
   urlCalendar: string = 'https://www.googleapis.com/calendar/v3/calendars/' + this.email_1 + '/events?orderBy=starttime&singleEvents=true&maxResults=10&timeMin=' + this.timeMin + '&key=' + this.apiKeyCal;
 
-  //urlWeatherCurrent: string = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
+  //urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/' + this.state + '/' + this.city + '.json';
 
-  urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/' + this.state + '/' + this.city + '.json';
+  //urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/' + this.state + '/' + this.city + '.json';
 
-  urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/' + this.state + '/' + this.city + '.json';
+  //urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/' + this.state + '/' + this.city + '.json';;
 
-  //urlForecast: string = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.city + '&units=imperial&appid=' + this.apiKeyW;
-
-  urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/' + this.state + '/' + this.city + '.json';;
+  urlWeatherCurrent: string = '';
+  urlHourlyCurrent: string = '';
+  urlForecast: string = '';
 
   constructor(private nav: NavController,
               private http: Http,

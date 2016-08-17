@@ -1,6 +1,6 @@
 
 
-<ion-content padding class="main-body">
+<ion-content  class="main-body">
 
   <!-- Day 1 -->
   <div class="container">
@@ -93,7 +93,7 @@
   <!-- Calendar -->
   <div class="calendar">
     <div class="calendar-header">
-      Calendar
+      <b>Calendar</b>
     </div>
     <div class="calendar-content" *ngFor="let item of calendarItems">
       <div *ngFor="let data of item.items; let i = index">
@@ -116,7 +116,7 @@
 
 
   <!-- Current Weather  -->
-  <div class="current-weather">
+  <!--div class="current-weather">
     <div *ngFor="let current of currentWeather">
       <font class="sub-title">
         Tuesday the 5th
@@ -134,21 +134,54 @@
         {{current.current_observation.display_location.full}}<br>
       </font>
     </div>
+  </div-->
+
+
+<div class="current-data">
+  <!-- Current Weather  -->
+  <div class="current-weather">
+    <div class="icon thunder-storm main-icon">
+      <div class="cloud"></div>
+      <div class="lightning">
+        <div class="bolt"></div>
+        <div class="bolt"></div>
+      </div>
+    </div>
+    <font class="sub-data">
+      Cloudy<br>
+      <font class="current-temp">69°F</font><br>
+      Feels like 60°F<br>
+      75% Humidity<br>
+      Florissant, MO<br>
+    </font>
   </div>
+
+  <div class="clock">
+    <font class="sub-title">
+      Tuesday the 5th
+    </font><br>
+    <div class="time">
+      6:69 PM
+    </div>
+  </div>
+
+  <!-- Hourly Weather -->
+  <div class="hourly-weather">
+    <b>Hourly Forecast</b>
+    <hr class="hr-line">
+    <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+      <font class="hourly-data">{{i}}:00 PM - 69°F | Cloudy with a chance of meatballs</font>
+      <hr class="hr-line">
+    </div>
+  </div>
+</div>
+
 
   <!--iframe src="http://free.timeanddate.com/clock/i5bmyk34/n5079/fs30/fcfff/tc000/pc000/ahl/ftb/tt0/th2/tb4" frameborder="0" width="463" height="74"></iframe-->
 
 
 
-
-  <!--div>
-    <button (click)="tapSandbox()">
-      Visit Sandbox
-    </button>
-  </div-->
-
-
-  <div *ngFor="let forecast_1 of forecast">
+  <!--div *ngFor="let forecast_1 of forecast">
     <div *ngFor="let txt of forecast_1.txt_forecast">
       <div *ngFor="let days of txt.forecastday">
         {{days.title}}
@@ -158,11 +191,23 @@
 
   <div *ngFor="let day of forecast">
     {{day.forecast.txt_forecast.forecastday[0].title}}
-  </div>
+  </div-->
 
   <!--div *ngFor="let days of forecast.forecast.txt_forecast.forcastday">
     {{days.title}}
   </div-->
 
+
+
+
+
+
+
+
+  <!--div>
+    <button (click)="tapSandbox()">
+      Visit Sandbox
+    </button>
+  </div-->
 
 </ion-content>

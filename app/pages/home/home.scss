@@ -2,7 +2,7 @@
 
 body {
   font-size: 1.2rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: Oxygen !important;
 }
 
 .container {
@@ -11,10 +11,11 @@ body {
 
   .sub-text {
     display: block;
+    font-size: 15px;
   }
 
   .days {
-    font-size: 1.4rem;
+    font-size: 20px;
   }
 }
 
@@ -22,14 +23,12 @@ body {
   float: right;
   width: 400px;
   padding: 5px 5px 0 5px; //top right bottom left
-  margin-right: 30px;
 
   .calendar-header {
     background-color: $primary;
-    margin-top: 10px;
     padding: 10px 0 10px 10px;
     vertical-align: center;
-    font-size: 18px;
+    font-size: 20px;
 
   }
 
@@ -40,7 +39,7 @@ body {
       padding-left: 8px;
 
       .details {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -50,23 +49,56 @@ body {
   background-color: $dark-grey;
 }
 
-.current-weather {
-  padding: 80px 0 80px 20px;
-  text-align: left;
-  float: left;
-  .time {
-    font-size: 36px;
+.current-data {
+  padding-top: 100px;
+  position: absolute;
+
+  .current-weather {
+    padding: 0 20px 20px 0;
+    text-align: left;
+    float: left;
+    line-height: 30px;
+
+    .main-icon {
+      font-size: 20px;
+      position: relative;
+      float: left;
+    }
+
+    .current-temp {
+      font-size: 30px;
+    }
+
+    .sub-data {
+      font-size: 20px;
+      display: inline-block;
+    }
   }
 
-  .title {
-    font-size: 36px;
+  .clock {
+    padding-left: 20px;
+    bottom: 0;
+    position: absolute;
+
+    .time {
+      font-size: 90px;
+    }
+    .sub-title {
+      font-size: 25px;
+    }
   }
 
-  .sub-title {
-    font-size: 25px;
-  }
 
-  .sub-data {
+  .hourly-weather {
+    padding: 0 20px 20px 0;
+    margin-left: 80px;
+    float: left;
+    width: 400px;
     font-size: 15px;
+
+    .hourly-data {
+      padding-left: 16px;
+      font-size: 1.2rem;
+    }
   }
 }

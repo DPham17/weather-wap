@@ -58,4 +58,170 @@
 
   <!--p>Based on <a href="https://dribbble.com/shots/2097042-Widget-Weather" target="_blank">Dribbble</a> by kylor</p-->
 
+
+
+  <!-- Day 1 -->
+  <div class="container">
+    <div class="sub-text days">
+      <b>Monday</b>
+    </div>
+    <div class="icon sunny">
+      <div class="sun">
+        <div class="rays"></div>
+      </div>
+    </div>
+    <div class="sub-text">
+      72° F<br>
+      Sunny<br>
+      March 16, 2016
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="container">
+    <div class="sub-text days">
+      <b>Tuesday</b>
+    </div>
+    <div class="icon cloudy">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+    <div class="sub-text">
+      69° F<br>
+      Cloudy<br>
+      March 17, 2016
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="container">
+    <div class="sub-text days">
+      <b>Wednesday</b>
+    </div>
+    <div class="icon rainy">
+      <div class="cloud"></div>
+      <div class="rain"></div>
+    </div>
+
+    <div class="sub-text">
+      65° F<br>
+      Rainy<br>
+      March 18, 2016
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="container">
+    <div class="sub-text days">
+      <b>Thursday</b>
+    </div>
+    <div class="icon sun-shower">
+      <div class="cloud"></div>
+      <div class="sun">
+        <div class="rays"></div>
+      </div>
+      <div class="rain"></div>
+    </div>
+    <div class="sub-text">
+      69° F<br>
+      Sunny Showers<br>
+      March 19, 2016
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="container">
+    <div class="sub-text days">
+      <b>Friday</b>
+    </div>
+    <div class="icon flurries">
+      <div class="cloud"></div>
+      <div class="snow">
+        <div class="flake"></div>
+        <div class="flake"></div>
+      </div>
+    </div>
+    <div class="sub-text">
+      2° F<br>
+      Flurrie<br>
+      March 20, 2016
+    </div>
+  </div>
+
+  <!-- Calendar -->
+  <div class="calendar">
+    <div class="calendar-header">
+      Calendar
+    </div>
+    <div class="calendar-content" *ngFor="let item of calendarItems">
+      <div *ngFor="let data of item.items; let i = index">
+        <div *ngIf="i != 0"><hr class="hr-line"></div>
+        <div class="body">
+          <b class="details"> {{data.summary}} </b> <br>
+          {{data.updated}}  |  1 PM - 2 PM <br>
+          <div *ngIf="data.description != NULL">
+            <ion-icon name="document" style="margin-right: 5px; padding-top: 5px;"></ion-icon>
+            {{data.description}}
+          </div>
+          <div *ngIf="data.location != NULL">
+            <ion-icon name="pin" style="margin-right: 8px; padding-top: 5px;"></ion-icon>{{data.location}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Current Weather  -->
+  <div class="current-weather">
+    <div *ngFor="let current of currentWeather">
+      <font class="sub-title">
+        Tuesday the 5th
+      </font><br>
+      <font class="title">
+        4:20
+      </font><br><br>
+      <font class="sub-data">
+        {{current.current_observation.temp_f}}°F |
+        {{current.current_observation.weather}}
+      </font><br>
+      <font class="sub-data">
+        Feels like {{current.current_observation.feelslike_f}}°F<br>
+        {{current.current_observation.relative_humidity}} Humidity <br>
+        {{current.current_observation.display_location.full}}<br>
+      </font>
+    </div>
+  </div>
+
+  <!--iframe src="http://free.timeanddate.com/clock/i5bmyk34/n5079/fs30/fcfff/tc000/pc000/ahl/ftb/tt0/th2/tb4" frameborder="0" width="463" height="74"></iframe-->
+
+
+
+
+  <!--div>
+    <button (click)="tapSandbox()">
+      Visit Sandbox
+    </button>
+  </div-->
+
+
+  <div *ngFor="let forecast_1 of forecast">
+    <div *ngFor="let txt of forecast_1.txt_forecast">
+      <div *ngFor="let days of txt.forecastday">
+        {{days.title}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let day of forecast">
+    {{day.forecast.txt_forecast.forecastday[0].title}}
+  </div>
+
+  <!--div *ngFor="let days of forecast.forecast.txt_forecast.forcastday">
+    {{days.title}}
+  </div-->
+
+
+
 </ion-content>
