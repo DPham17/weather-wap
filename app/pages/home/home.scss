@@ -50,19 +50,20 @@ body {
 }
 
 .current-data {
-  padding-top: 100px;
+  padding-top: 80px;
   position: absolute;
+
+  .day-data {
+    float: left;
+  }
 
   .current-weather {
     padding: 0 20px 20px 0;
     text-align: left;
-    float: left;
     line-height: 30px;
 
     .main-icon {
       font-size: 20px;
-      position: relative;
-      float: left;
     }
 
     .current-temp {
@@ -72,16 +73,17 @@ body {
     .sub-data {
       font-size: 20px;
       display: inline-block;
+      position: absolute;
     }
   }
 
   .clock {
     padding-left: 20px;
     bottom: 0;
-    position: absolute;
+    position: relative;
 
     .time {
-      font-size: 90px;
+      font-size: 80px;
     }
     .sub-title {
       font-size: 25px;
@@ -91,10 +93,12 @@ body {
 
   .hourly-weather {
     padding: 0 20px 20px 0;
+    position: absolute;
     margin-left: 80px;
-    float: left;
-    width: 400px;
+    float: right;
+    width: 250px;
     font-size: 15px;
+    display: inline-block;
 
     .hourly-data {
       padding-left: 16px;

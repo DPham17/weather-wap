@@ -3,6 +3,7 @@ import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Events} from 'ionic-angular';
 import {NavController} from 'ionic-angular';
+import {StatusBar} from 'ionic-native';
 import {SandboxPage} from '../sandbox/sandbox'
 import {calendarModel} from '../../models/calendarModel'
 import {weatherModel} from '../../models/weatherModel'
@@ -41,22 +42,24 @@ export class HomePage {
 
   //urlWeatherCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/conditions/q/' + this.state + '/' + this.city + '.json';
 
-  //urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/' + this.state + '/' + this.city + '.json';
+  urlHourlyCurrent: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/hourly/q/' + this.state + '/' + this.city + '.json';
 
   //urlForecast: string = 'http://api.wunderground.com/api/' + this.apiKeyW + '/forecast/q/' + this.state + '/' + this.city + '.json';;
 
   urlWeatherCurrent: string = '';
-  urlHourlyCurrent: string = '';
+  //urlHourlyCurrent: string = '';
   urlForecast: string = '';
 
   constructor(private nav: NavController,
               private http: Http,
               public events: Events) {
     // Calls the Google Calendar API
-    this.getData();
-    this.getWeather();
-    this.getHourly();
-    this.getForecast();
+    StatusBar.hide();
+    //this.getData();
+    //this.getWeather();
+    //this.getHourly();
+    //this.getForecast();
+    this.getClock();
   }
 
   tapSandbox(event, item) {
@@ -151,6 +154,25 @@ export class HomePage {
     model.initialize(this.recievedForecast);
     this.forecast.push(model);
     console.log(this.forecast);
+  }
+
+
+
+
+
+  // Create the clock
+  getClock() {
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+
+    if (h > 12) { h = h - 12; }
+    if (m < 10) { m = 0 + m; }
+    if (s < 10) { s = 0 + m; }
+
+    console.log(h + ":" + m + ":" + s);
+
   }
 
 
