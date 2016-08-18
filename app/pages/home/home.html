@@ -2,22 +2,58 @@
 
 <ion-content  class="main-body">
 
-  <!-- Forecast -->
-  <div class="container" *ngFor="let i of [1, 2, 3, 4, 5]">
-    <div class="sub-text days">
-      <b>Someday</b>
+  <!--div *ngFor="let day of forecast">
+    {{day.forecast.txt_forecast.forecastday[0].title}}
+  </div>
+
+  <div *ngFor="let data of forecast">
+    <div *ngFor="let day of data.forecast.txt_forecast.forecastday">
+      {{day.title}}
     </div>
-    <div class="icon sunny">
-      <div class="sun">
-        <div class="rays"></div>
+  </div-->
+
+  <!--div *ngFor="let days of forecast.forecast.txt_forecast.forcastday">
+    {{days.title}}
+  </div-->
+
+
+  <!-- Forecast -->
+  <font *ngFor="let data of forecast">
+    <div *ngFor="let day of data.forecast.simpleforecast.forecastday" class="container">
+      <div class="sub-text days">
+        <b>{{day.date.weekday}}</b>
+      </div>
+      <div class="icon sunny">
+        <div class="sun">
+          <div class="rays"></div>
+        </div>
+      </div>
+      <div class="sub-text">
+        {{day.low.fahrenheit}}°F - {{day.high.fahrenheit}}°F<br>
+        {{day.conditions}}<br>
+        {{day.date.monthname_short}}, {{day.date.day}} {{day.date.year}}
       </div>
     </div>
-    <div class="sub-text">
-      69°F<br>
-      House on Fire<br>
-      March 17, 1993
+  </font>
+
+  <!-- MAKE SURE YOU TAKE THIS OUT -->
+  <font *ngIf="forecast == 0">
+    <div *ngFor="let i of [1, 2, 3, 4]" class="container">
+      <div class="sub-text days">
+        <b>Someday</b>
+      </div>
+      <div class="icon sunny">
+        <div class="sun">
+          <div class="rays"></div>
+        </div>
+      </div>
+      <div class="sub-text">
+        69°F<br>
+        House on Fire<br>
+        March 17, 1993
+      </div>
     </div>
-  </div>
+  </font>
 
   <!-- Calendar -->
   <div class="calendar">
@@ -93,7 +129,6 @@
     <hr class="hr-line">
     <div *ngIf="hourlyWeather != 0">
       <div *ngFor="let data of hourlyWeather">
-
         <div *ngFor="let hourly of data.hourly_forecast; #i = index">
           <div *ngIf="i < 12">
             <font class="hourly-data">

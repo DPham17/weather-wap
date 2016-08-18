@@ -51,7 +51,7 @@ export class HomePage {
               public events: Events) {
     // Calls the Google Calendar API
     StatusBar.hide();
-    //this.getData();
+    this.getData();
     //this.getWeather();
     //this.getHourly();
     //this.getForecast();
