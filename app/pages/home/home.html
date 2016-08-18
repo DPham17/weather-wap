@@ -5,7 +5,7 @@
   <!-- Forecast -->
   <div class="container" *ngFor="let i of [1, 2, 3, 4, 5]">
     <div class="sub-text days">
-      <b>Monday</b>
+      <b>Someday</b>
     </div>
     <div class="icon sunny">
       <div class="sun">
@@ -13,9 +13,9 @@
       </div>
     </div>
     <div class="sub-text">
-      72° F<br>
-      Sunny<br>
-      March 16, 2016
+      69°F<br>
+      House on Fire<br>
+      March 17, 1993
     </div>
   </div>
 
@@ -46,31 +46,9 @@
     </div>
   </div>
 
-
-  <!-- Current Weather  -->
-  <!--div class="current-weather">
-    <div *ngFor="let current of currentWeather">
-      <font class="sub-title">
-        Tuesday the 5th
-      </font><br>
-      <font class="title">
-        4:20
-      </font><br><br>
-      <font class="sub-data">
-        {{current.current_observation.temp_f}}°F |
-        {{current.current_observation.weather}}
-      </font><br>
-      <font class="sub-data">
-        Feels like {{current.current_observation.feelslike_f}}°F<br>
-        {{current.current_observation.relative_humidity}} Humidity <br>
-        {{current.current_observation.display_location.full}}<br>
-      </font>
-    </div>
-  </div-->
-
-
 <div class="current-data">
   <div class="day-data">
+
     <!-- Current Weather  -->
     <div class="current-weather">
       <div class="icon thunder-storm main-icon">
@@ -80,12 +58,21 @@
           <div class="bolt"></div>
         </div>
       </div>
-      <font class="sub-data">
-        Cloudy<br>
+      <font *ngFor="let current of currentWeather" class="sub-data">
+        {{current.current_observation.weather}}<br>
+        <font class="current-temp">
+          {{current.current_observation.temp_f}}°F
+        </font><br>
+        Feels like {{current.current_observation.feelslike_f}}°F<br>
+        {{current.current_observation.relative_humidity}} Humidity <br>
+        {{current.current_observation.display_location.full}}<br>
+      </font>
+      <font *ngIf="currentWeather == 0" class="sub-data">
+        Adventure Time!<br>
         <font class="current-temp">69°F</font><br>
-        Feels like 60°F<br>
-        75% Humidity<br>
-        Florissant, MO<br>
+        Be Do Be Do!<br>
+        There is no WIFI,<br>
+        Stupid Internet<br>
       </font>
     </div>
 
