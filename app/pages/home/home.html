@@ -2,65 +2,62 @@
 
 <ion-content  class="main-body">
 
-  <!--div *ngFor="let day of forecast">
-    {{day.forecast.txt_forecast.forecastday[0].title}}
+  <!-- Current Weather  -->
+  <div class="current-weather">
+    <div class="icon thunder-storm main-icon">
+      <div class="cloud"></div>
+      <div class="lightning">
+        <div class="bolt"></div>
+        <div class="bolt"></div>
+      </div>
+    </div>
+    <font *ngFor="let current of currentWeather" class="sub-data">
+      {{current.current_observation.weather}}<br>
+      <font class="current-temp">
+        {{current.current_observation.temp_f}}°F
+      </font><br>
+      Feels like {{current.current_observation.feelslike_f}}°F<br>
+      {{current.current_observation.relative_humidity}} Humidity <br>
+      {{current.current_observation.display_location.full}}<br>
+    </font>
+    <font *ngIf="currentWeather == 0" class="sub-data">
+      Adventure Time!<br>
+      <font class="current-temp">69°F</font><br>
+      Be Do Be Do!<br>
+      There is no WIFI,<br>
+      Stupid Internet<br>
+    </font>
   </div>
 
-  <div *ngFor="let data of forecast">
-    <div *ngFor="let day of data.forecast.txt_forecast.forecastday">
-      {{day.title}}
+  <!-- Hourly Weather -->
+  <div class="hourly-weather">
+    <div class="calendar-header">
+      <b>Hourly Forecast</b>
     </div>
-  </div-->
-
-  <!--div *ngFor="let days of forecast.forecast.txt_forecast.forcastday">
-    {{days.title}}
-  </div-->
-
-
-  <!-- Forecast -->
-  <font *ngFor="let data of forecast">
-    <div *ngFor="let day of data.forecast.simpleforecast.forecastday" class="container">
-      <div class="sub-text days">
-        <b>{{day.date.weekday}}</b>
-      </div>
-      <div class="icon sunny">
-        <div class="sun">
-          <div class="rays"></div>
+    <div *ngIf="hourlyWeather != 0">
+      <div *ngFor="let data of hourlyWeather" class="hourly-body">
+        <div *ngFor="let hourly of data.hourly_forecast; #i = index">
+          <div *ngIf="i < 12">
+            <font class="hourly-data">
+              {{hourly.FCTTIME.civil}} - {{hourly.temp.english}}°F | {{hourly.condition}}
+            </font>
+            <hr class="hr-line">
+          </div>
         </div>
       </div>
-      <div class="sub-text">
-        {{day.low.fahrenheit}}°F - {{day.high.fahrenheit}}°F<br>
-        {{day.conditions}}<br>
-        {{day.date.monthname_short}}, {{day.date.day}} {{day.date.year}}
-      </div>
     </div>
-  </font>
-
-  <!-- MAKE SURE YOU TAKE THIS OUT -->
-  <font *ngIf="forecast == 0">
-    <div *ngFor="let i of [1, 2, 3, 4]" class="container">
-      <div class="sub-text days">
-        <b>Someday</b>
-      </div>
-      <div class="icon sunny">
-        <div class="sun">
-          <div class="rays"></div>
-        </div>
-      </div>
-      <div class="sub-text">
-        69°F<br>
-        House on Fire<br>
-        March 17, 1993
-      </div>
+    <!-- You know. if we lose internet connection or something -->
+    <div *ngIf="hourlyWeather == 0" class="hourly-body">
+      <font class="hourly-data">Cannot get the hourly forecast</font>
     </div>
-  </font>
+  </div>
 
   <!-- Calendar -->
   <div class="calendar">
     <div class="calendar-header">
       <b>Calendar</b>
     </div>
-    <div class="calendar-content" *ngFor="let item of calendarItems">
+    <div *ngFor="let item of calendarItems" class="calendar-content">
       <div *ngFor="let data of item.items; let i = index">
         <div *ngIf="i != 0"><hr class="hr-line"></div>
         <div class="body">
@@ -82,69 +79,57 @@
     </div>
   </div>
 
+
 <div class="current-data">
-  <div class="day-data">
-
-    <!-- Current Weather  -->
-    <div class="current-weather">
-      <div class="icon thunder-storm main-icon">
-        <div class="cloud"></div>
-        <div class="lightning">
-          <div class="bolt"></div>
-          <div class="bolt"></div>
+  <!-- Forecast -->
+  <font *ngFor="let data of forecast">
+    <div *ngFor="let day of data.forecast.simpleforecast.forecastday; let i = index" class="forecast-weather">
+      <div *ngIf="i != 0">
+        <div class="sub-text days">
+          <b>{{day.date.weekday}}</b>
         </div>
-      </div>
-      <font *ngFor="let current of currentWeather" class="sub-data">
-        {{current.current_observation.weather}}<br>
-        <font class="current-temp">
-          {{current.current_observation.temp_f}}°F
-        </font><br>
-        Feels like {{current.current_observation.feelslike_f}}°F<br>
-        {{current.current_observation.relative_humidity}} Humidity <br>
-        {{current.current_observation.display_location.full}}<br>
-      </font>
-      <font *ngIf="currentWeather == 0" class="sub-data">
-        Adventure Time!<br>
-        <font class="current-temp">69°F</font><br>
-        Be Do Be Do!<br>
-        There is no WIFI,<br>
-        Stupid Internet<br>
-      </font>
-    </div>
-
-    <div class="clock">
-      <font class="sub-title">
-        Tuesday | 8/17/2016
-      </font><br>
-      <div class="time">
-        12:69:21 PM
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Hourly Weather -->
-  <div class="hourly-weather">
-    <b>Hourly Forecast</b>
-    <hr class="hr-line">
-    <div *ngIf="hourlyWeather != 0">
-      <div *ngFor="let data of hourlyWeather">
-        <div *ngFor="let hourly of data.hourly_forecast; #i = index">
-          <div *ngIf="i < 12">
-            <font class="hourly-data">
-              {{hourly.FCTTIME.civil}} - {{hourly.temp.english}}°F | {{hourly.condition}}
-            </font>
-            <hr class="hr-line">
+        <div class="icon sunny">
+          <div class="sun">
+            <div class="rays"></div>
           </div>
         </div>
+        <div class="sub-text">
+          {{day.low.fahrenheit}}°F - {{day.high.fahrenheit}}°F<br>
+          {{day.conditions}}<br>
+          {{day.date.monthname_short}}, {{day.date.day}} {{day.date.year}}
+        </div>
       </div>
     </div>
-    <!-- You know. if we lose internet connection or something -->
-    <div *ngIf="hourlyWeather == 0">
-      <font class="hourly-data">Cannot get the hourly forecast</font>
+  </font>
+
+  <!-- MAKE SURE YOU TAKE THIS OUT -->
+  <font *ngIf="forecast == 0">
+    <div *ngFor="let i of [1, 2, 3]" class="forecast-weather">
+      <div class="sub-text days">
+        <b>Someday</b>
+      </div>
+      <div class="icon sunny">
+        <div class="sun">
+          <div class="rays"></div>
+        </div>
+      </div>
+      <div class="sub-text">
+        69°F<br>
+        House on Fire<br>
+        March 17, 1993
+      </div>
+    </div>
+  </font>
+
+  <!-- Clock -->
+  <div class="clock">
+    <font class="sub-title">
+      Tuesday | 8/17/2016
+    </font><br>
+    <div class="time">
+      12:69:21 PM
     </div>
   </div>
-
 
 </div>
 

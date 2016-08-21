@@ -5,17 +5,52 @@ body {
   font-family: Oxygen !important;
 }
 
-.container {
-  display: inline-block;
-  text-align: center;
+.hr-line {
+  background-color: $dark-grey;
+}
 
-  .sub-text {
-    display: block;
-    font-size: 15px;
+.current-weather {
+  padding: 0 50px 0 0;
+  text-align: left;
+  line-height: 30px;
+  display: inline-block;
+
+  .main-icon {
+    font-size: 20px;
   }
 
-  .days {
+  .current-temp {
+    font-size: 30px;
+  }
+
+  .sub-data {
     font-size: 20px;
+    display: inline-block;
+  }
+}
+
+.hourly-weather {
+  padding: 5px 5px 0 5px;
+  position: absolute;
+  margin-left: 140px;
+  float: right;
+  width: 300px;
+  font-size: 15px;
+  display: inline-block;
+
+  .calendar-header {
+    background-color: $favorite;
+    padding: 10px 0 10px 10px;
+    vertical-align: center;
+    font-size: 20px;
+  }
+
+  .hourly-body {
+    padding: 10px 24px 0 24px;
+
+    .hourly-data {
+      padding-left: 8px;
+    }
   }
 }
 
@@ -29,7 +64,6 @@ body {
     padding: 10px 0 10px 10px;
     vertical-align: center;
     font-size: 20px;
-
   }
 
   .calendar-content {
@@ -45,64 +79,36 @@ body {
   }
 }
 
-.hr-line {
-  background-color: $dark-grey;
+.current-data {
+  position: absolute;
+  float: left;
 }
 
-.current-data {
+.forecast-weather {
+  display: inline-block;
+  text-align: center;
   padding-top: 80px;
-  position: absolute;
+  padding-bottom: 80px;
 
-  .day-data {
-    float: left;
-  }
-
-  .current-weather {
-    padding: 0 20px 20px 0;
-    text-align: left;
-    line-height: 30px;
-
-    .main-icon {
-      font-size: 20px;
-    }
-
-    .current-temp {
-      font-size: 30px;
-    }
-
-    .sub-data {
-      font-size: 20px;
-      display: inline-block;
-      position: absolute;
-    }
-  }
-
-  .clock {
-    padding-left: 20px;
-    bottom: 0;
-    position: relative;
-
-    .time {
-      font-size: 80px;
-    }
-    .sub-title {
-      font-size: 25px;
-    }
-  }
-
-
-  .hourly-weather {
-    padding: 0 20px 20px 0;
-    position: absolute;
-    margin-left: 80px;
-    float: right;
-    width: 350px;
+  .sub-text {
+    display: block;
     font-size: 15px;
-    display: inline-block;
+  }
 
-    .hourly-data {
-      padding-left: 16px;
-      font-size: 1.2rem;
-    }
+  .days {
+    font-size: 20px;
+  }
+}
+
+.clock {
+  padding-left: 20px;
+  bottom: 0;
+  position: relative;
+
+  .time {
+    font-size: 80px;
+  }
+  .sub-title {
+    font-size: 25px;
   }
 }
